@@ -7,7 +7,7 @@
 			<h2 v-rainbow>{{blog.title | to-uppercase}}</h2>
 		</router-link>
 		<article>
-			{{blog.body | snippet}}
+			{{blog.content | snippet}}
 		</article>
 	</div>
   </div>
@@ -24,12 +24,24 @@ export default {
   	}
   },
   created() {
-  	this.$http.get("https://jsonplaceholder.typicode.com/posts")
+  	this.$http.get("https://myblog-41a2d.firebaseio.com/posts.json")
 	.then(function(data){
-		//console.log(data);
-		this.blogs = data.body.slice(0,10);
-		//console.log(this.blogs);
+		
+		// console.log(data.json());
+		return data.json()
 	})
+		.then(function(data){
+			var blogsArray = [];
+			for(let key in data){
+				//console.log(data[key]);
+				data[key].id=key;
+				blogsArray.push(data[key]);
+			}
+			this.blogs=blogsArray;
+			console.log(this.blogs);
+		})
+		//this.blogs = data.body.slice(0,10);
+		//console.log(this.blogs);
   },
   //搜索
   computed:{

@@ -19,7 +19,7 @@
 			<input type="checkbox" value="Angular4" v-model="blog.categories">
 		</div>
 		<label>作者:</label>
-		<select v-model="blog.anthor">
+		<select v-model="blog.author">
 			<option v-for="author in authors">
 				{{author}}
 			</option>
@@ -42,7 +42,7 @@
 				{{category}}
 			</li>
 		</ul>
-		<p>作者:{{blog.anthor}}</p>
+		<p>作者:{{blog.author}}</p>
 	</div>
   </div>
 </template>
@@ -56,7 +56,7 @@ export default {
 			title:"",
 			content:"",
 			categories:[],
-			anthor:""
+			author:""
 		},
 		authors:["Admin","Cjr"],
 		submmited:false
@@ -64,11 +64,7 @@ export default {
   },
   methods:{
 	  post:function(){
-		  this.$http.post("https://jsonplaceholder.typicode.com/posts",{
-			  title:this.blog.title,
-			  body:this.blog.content,
-			  userId:1,
-			  })
+		  this.$http.post("https://myblog-41a2d.firebaseio.com/posts.json",this.blog)
 			  .then(function(data){
 				  console.log(data);
 				  this.submmited = true;
