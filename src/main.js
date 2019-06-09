@@ -4,12 +4,15 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import VueRouter from 'vue-router'
 import App from './App'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 import Routes from './routes'
 //cjr
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
+Vue.use(ElementUI)
 
 //自定义指令
 Vue.directive('rainbow',{
@@ -55,5 +58,6 @@ new Vue({
   el: '#app',
   components: { App },
   template: '<App/>',
+	render: h => h(App),
 	router:router
 })
