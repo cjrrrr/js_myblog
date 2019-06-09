@@ -9,6 +9,8 @@
 				{{category}}
 			</li>
 		</ul>
+		<button @click="deleteSingleBlog()">删除</button>
+		<router-link :to="'/edit/' + id">编辑</router-link>
 	</div>
 </template>
 
@@ -31,6 +33,14 @@
 			.then(function(data){
 				this.blog=data;
 			})
+		},
+		methods:{
+			deleteSingleBlog(){
+				this.$http.delete('https://myblog-41a2d.firebaseio.com/posts/' + this.id +".json")
+				.then(response =>{
+					this.$router.push({path:'/'})
+				})
+			}
 		}
 	}
 </script>
