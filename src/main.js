@@ -31,7 +31,7 @@ Vue.directive('theme',{
 		}
 		
 		if(binding.arg=='column'){
-			el.style.background="#6677cc";
+			el.style.margin = "0 5px 0 5px"
 			el.style.padding='20px';
 		}
 	}

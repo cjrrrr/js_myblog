@@ -34,7 +34,6 @@ a{
 nav{
 	background: crimson;
 	padding: 30px 0;
-	margin-bottom: 40px;
 }
 .router-link-active{
 	background: rgba(255,255,255,0.8);
