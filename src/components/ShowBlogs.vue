@@ -1,5 +1,25 @@
 <template>	
   <div class="box1">
+		  <vue-particles
+				style="position: absolute;width: 100%;height: 100%;"
+		    color="#dedede"
+		    :particleOpacity="0.7"
+		    :particlesNumber="80"
+		    shapeType="circle"
+		    :particleSize="4"
+		    linesColor="#dedede"
+		    :linesWidth="1"
+		    :lineLinked="true"
+		    :lineOpacity="0.4"
+		    :linesDistance="150"
+		    :moveSpeed="3"
+		    :hoverEffect="true"
+		    hoverMode="grab"
+		    :clickEffect="true"
+		    clickMode="push"
+		  >
+		  </vue-particles>
+
 		<div style="width: 100%;">
 			<el-carousel indicator-position="outside" height="250px">
 				<el-carousel-item v-for="img in imgList" :key="img.id">
@@ -50,7 +70,7 @@ export default {
           'https://fuss10.elemecdn.com/2/11/6535bcfb26e4c79b48ddde44f4b6fjpeg.jpeg'
         ],
 		imgList: [
-					{id:0,url:require('../assets/images/banner1.jpeg')},
+					{id:0,url:require('../assets/images/banner1.jpg')},
 					{id:1,url:require('../assets/images/banner2.jpeg')},
 					{id:2,url:require('../assets/images/banner3.jpeg')}
 		]

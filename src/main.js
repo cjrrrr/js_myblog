@@ -7,12 +7,14 @@ import App from './App'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import Routes from './routes'
+import VueParticles from 'vue-particles'  
 //cjr
 Vue.config.productionTip = false
 
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(ElementUI)
+Vue.use(VueParticles) 
 
 //自定义指令
 Vue.directive('rainbow',{
